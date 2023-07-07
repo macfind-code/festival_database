@@ -71,7 +71,18 @@ inner join artist as A on AG.artist_id= A.id;
 
 4. Lister les concerts auxquels va assister **Retha Dookie**, avec la liste des membres du groupe, le lieu et la date/heure
 
+SELECT event.id, artist.first_name, artist.last_name, place.name, event.start_time
+FROM spectateur
+INNER JOIN ticket ON spectateur.id = ticket.spectator_id
+INNER JOIN concert_part ON ticket.concert_id = concert_part.concert_id
+INNER JOIN `group` ON concert_part.artist_id = `group`.id
+INNER JOIN artist_group ON `group`.id = artist_group.group_id
+INNER JOIN artist ON artist_group.artist_id = artist.id
+INNER JOIN event ON ticket.concert_id = event.id
+INNER JOIN place ON event.place_id = place.id
+WHERE (spectateur.first_name = 'Retha') AND (spectateur.last_name = 'Dooley')
 
+-- 22 résultats
 
 5. Calculer le panier moyen des ventes
 
@@ -120,7 +131,13 @@ group by concert_id;
 
 3. Lister le total des ventes pour chaque journée de festival (en se basant sur `startTime`)
 
+SELECT date(event.start_time), SUM(price)
+FROM event
+JOIN ticket on ticket.concert_id = event.id
+JOIN price ON price.id = ticket.price_id
+GROUP BY date(event.start_time)
 
+-- 8 résultats
 
 4. Lister la moyenne du montant des ventes pour chaque concert
 
