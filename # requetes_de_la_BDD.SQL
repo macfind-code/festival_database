@@ -1,7 +1,7 @@
 # Projet SQL Hetic
 
 
--- ### Groupe 1 : SELECT (Sans jointures) (0.5/20)
+-- ### Groupe 1 : SELECT (Sans jointures)
 
 1. Lister le nom et le prénom des musiciens, ordonnées par leur date de naissance
 
@@ -21,7 +21,7 @@ SELECT start_time FROM event ORDER BY start_time LIMIT 5;
 
 -- 5 résultats
 
--- ### Groupe 2 : WHERE (0.5/20)
+-- ### Groupe 2 : WHERE
 
 1. Lister les spectateurs originaires de **Croatie**
 
@@ -47,7 +47,7 @@ SELECT id, date FROM event ORDER BY date asc;
 
 -- 14 résultats
 
--- ### Groupe 3 : JOIN (1/20)
+-- ### Groupe 3 : JOIN
 
 1. Lister les concerts et  afficher les artistes présent à chacun d’eux
 
@@ -102,7 +102,7 @@ inner join place as P on P.id = E.place_id;
 
 -- 15 résultats
 
-### Groupe 4 : GROUP BY (1/20)
+### Groupe 4 : GROUP BY
 
 1. Lister les groupes et leur nombre de membres.
 
@@ -138,7 +138,7 @@ group by concert_id;
 
 -- 5 résultats
 
-### Groupe 5 : Requêtes ensemblistes (3/20)
+### Groupe 5 : Requêtes ensemblistes
 
 1. Lister les nom, prénom de ceux qui font le festival : Artistes et Bénévoles.
 
